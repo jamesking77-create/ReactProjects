@@ -1,0 +1,29 @@
+ 
+.topnav{
+    height: 8%;
+    width: 100%;
+    background-color:rgba(0, 0, 0, 0.938);
+    display: flex;
+    gap: 20em;
+    /* padding-top: 1%;
+    padding-bottom: 1%; */
+    align-items: center;
+  }
+  
+  .topnav li{
+    
+    list-style: none;
+    color: aliceblue;
+    font-size: 90%;
+    width: 11%;
+    justify-content: center;  
+   
+  
+  }
+  
+  .topnav li:hover {
+    background-color: #000000b9;
+    color: white;
+    transform: scale(1.2);
+    
+  }
