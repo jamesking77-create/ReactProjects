@@ -1,15 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-// import TopNav from './pages/dashboard/component/topNav';
-// import Hero from './pages/dashboard/component/hero';
-import Moyin from './pages/dashboard/component/moyin';
-
+import Tictactoe from './pages/dashboard/component/tictactoe.jsx'
 
 
 function App() {
   return (
     <div className="App">
-      <Moyin/>
+      <Tictactoe/>
       
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

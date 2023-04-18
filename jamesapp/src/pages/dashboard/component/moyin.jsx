@@ -52,8 +52,11 @@ function Moyin() {
     }
 
         return (
+            
             <div className='fresh'>
                 <link rel="stylesheet" href="moyin.css" />
+
+
                 {/* <div className="ptags">
                     <p className="one">First Name: {firstName}</p>
                     <p className="two">Last Name: {lastName}</p>
@@ -68,7 +71,7 @@ function Moyin() {
 
                 <label htmlFor="firstName">
                     FirstName: <br />
-                    <input type="text" name="firstName" id="firstName" value={firstName} onChange={handleChange}/>
+                    <input type="text" name="firstName" id="firstName" value={firstName} onc={handleChange}/>
                 </label><br/><br/>
                 <label htmlFor="lastName">
                    LastName: <br />
