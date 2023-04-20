@@ -3,103 +3,149 @@ import '../styles/tictactoe.css'
 
 
 function Tictactoe(){
-
-    let initialState = {
-        row0column0: "",
-        row0column1: "",
-        row0column2: "",
-        row1column0: "",
-        row1column1: "",
-        row1column2: "",
-        row2column0: "",
-        row2column1: "",
-        row2column2: "",
-     
-    }
-    // and this
-    const [data, setData] = useState(initialState);
-
-
-    //is same as this
-    const [ row0column0, setRow0column0] = useState("");
-    const [ row0column1, setRow0column1] = useState("");
-    const [ row0column2, setRow0column2] = useState("");
-    const [ row1column0, setRow1column0] = useState("");
-    const [ row1column1, setRow1column1] = useState("");
-    const [ row1column2, setRow1column2] = useState("");
-    const [ row2column0, setRow2column0] = useState("");
-    const [ row2column1, setRow2column1] = useState("");
-    const [ row2column2, setRow2column2] = useState("");
-
-    function handleOnClick(event){
-
-        for(let i = 0; i < 9; i++){
-            if(i == 0){
-                if( event.target.value == 1){
-                    setRow0column0('X');
-                }
-                 else if( event.target.value == 2){
-                    setRow0column1('X');
-                }
-                else if( event.target.value == 3){
-                    setRow0column2('X');
-                }
-                else if(event.target.value == 4){
-                    setRow1column0('X');
-                }
-                 else if(event.target.value == 5){
-                    setRow1column1('X');
-                }
-                else if( event.target.value == 6){
-                    setRow1column2('X');
-                }
-                else if( event.target.value == 7){
-                    setRow2column0('X');
-                }
-                else if( event.target.value == 8){
-                    setRow2column1('X');
-                }
-                else if( event.target.value == 9){
-                    setRow2column2('X');
-                }
-            }
-            if(i == 1){
-                if( event.target.value == 1){
-                    setRow0column0('O');
-                }
-                 else if( event.target.value == 2){
-                    setRow0column1('O');
-                }
-                else if( event.target.value == 3){
-                    setRow0column2('O');
-                }
-                else if( event.target.value == 4){
-                    setRow1column0('O');
-                }
-                 else if(event.target.value == 5){
-                    setRow1column1('O');
-                }
-                else if( event.target.value == 6){
-                    setRow1column2('O');
-                }
-                else if( event.target.value == 7){
-                    setRow2column0('O');
-                }
-                else if( event.target.value == 8){
-                    setRow2column1('O');
-                }
-                else if( event.target.value == 9){
-                    setRow2column2('O');
-                }
-            }
-
-            if(i == 2){
-                i = 0;
-            }
-        }
+    let word = "PRESS PLAY TO START GAME"
+    const X = "X";
        
-    }
+    const O = "O";
+    let currentPlayer = 0;
+ 
+    let restext = document.querySelector(".restext"); 
+          
+    let players = [
+
+       {
+          name: "PLAYER 1",
+          symbol: X
+       
+       },
+       
+       {
+          name: "PLAYER 2",
+          symbol: O
+       
+       }
+    ]
+
     
+
+    function getCurrentPlayerName(){
+        return players[currentPlayer].name;
+     }    
+     
+     function resetCurrentPlayer(){
+        currentPlayer++;
+        if(currentPlayer === players.length) currentPlayer = 0;
+     }
+     
+     function getCurrentSymbol(){
+        return players[currentPlayer].symbol;
+        
+     }
+
+
+    function checkForWinner(columns){
+
+        let divArray = [];
+        for (let i = 0; i < 9; i += 1) {
+            divArray.push(columns[i].innerHTML);
+            console.log(columns[i].innerHTML);
+                   
+            if(divArray[0] == X && divArray[1] == X && divArray[2] == X ||
+                divArray[0] == O && divArray[1] == O && divArray[2] == O ){
+                    word = ` ${getCurrentPlayerName()} won!!!`;  
+                        
+            }
+            
+            if(divArray[0] == X && divArray[3] == X && divArray[6] == X ||
+                divArray[0] == O && divArray[3] == O && divArray[6] == O ){
+                word = ` ${getCurrentPlayerName()} won!!!`; 
+                
+            }
+            
+            if(divArray[0] == X && divArray[3] == X && divArray[6] == X ||
+                divArray[0] == O && divArray[3] == O && divArray[6] == O ){
+                    word = ` ${getCurrentPlayerName()} won!!!`;
+                
+            }
+            
+            if(divArray[6] == X && divArray[7] == X && divArray[8] == X ||
+                divArray[6] == O && divArray[7] == O && divArray[8] == O ){
+                    word = ` ${getCurrentPlayerName()} won!!!`;
+            
+            }
+            
+            if(divArray[2] == X && divArray[5] == X && divArray[8] == X ||
+                divArray[2] == O && divArray[5] == O && divArray[8] == O ){
+                    word = ` ${getCurrentPlayerName()} won!!!`;
+                
+            }
+            
+            if(divArray[1] == X && divArray[4] == X && divArray[7] == X ||
+                divArray[1] == O && divArray[4] == O && divArray[7] == O ){
+                    word = ` ${getCurrentPlayerName()} won!!!`;
+                
+            }
+            
+            
+            if(divArray[0] == X && divArray[4] == X && divArray[8] == X || 
+                divArray[0] == O && divArray[4] == O && divArray[8] == O ){
+                    word = ` ${getCurrentPlayerName()} won!!!`;
+                
+            }
+            
+            if(divArray[2] == X && divArray[4] == X && divArray[6] == X ||
+                divArray[2] == O && divArray[4] == O && divArray[6] == O ){
+                    word = ` ${getCurrentPlayerName()} won!!!`;
+            
+            }
+    
+    
+            if(divArray[3] == X && divArray[4] == X && divArray[5] == X ||
+                divArray[3] == O && divArray[4] == O && divArray[5] == O ){
+                    word = `${getCurrentPlayerName()} won!!!`;  
+                    
+            }
+          }
+       }
+     
+    
+
+    function handleClick(){
+
+        let playButton = document.querySelector(".play");
+        playButton.disable = true;
+       
+       let columns = document.querySelectorAll(".column");
+       
+       let restext = document.querySelector(".restext");
+
+
+                
+                document.querySelector(".restext").innerHTML = "START GAME!!!";
+                columns.forEach(element => {
+                   element.addEventListener("click", function(){
+                    if (element.innerHTML == ".") {
+                        element.innerHTML = getCurrentSymbol();
+                         checkForWinner(columns)
+                        restext.innerHTML = `${getCurrentPlayerName()} HAS PLAYED ( IT'S' YOUR TURN TO PLAY )`; 
+                        resetCurrentPlayer();
+                   }}); 
+                }); 
+    }
+
+
+    function resetGame (){
+        document.querySelector(".restext").innerHTML = "PRESS -> ( PLAY ) BUTTON TO START GAME!!";
+        let columns = document.querySelectorAll(".column");
+        let playButton = document.querySelector(".play");
+        playButton.disable = false
+        columns.forEach(element => {
+            element.innerHTML = "."; 
+            handleClick.disable = true
+        
+        });
+    }
+
 
 
 
@@ -109,7 +155,7 @@ function Tictactoe(){
 
         <div className="gameBoard">
             <div className="row0">
-                <div className="row0column0" id="column1">.</div>
+                <div id="row0column0" className="column">.</div>
                 <div id="row0column1" className="column">.</div>
                 <div id="row0column2" className="column">.</div>
             </div>
@@ -131,15 +177,13 @@ function Tictactoe(){
         <div className="resultBoard">
 
         <div className="result">
-            <p className="restext">PRESS PLAY TO START GAME</p>
+            <h3 className="restext">{word}</h3>
         </div>
 
         <div className="buttons">
-            <button className="play" onClick={handleOnClick}>PLAY</button>
-            <label htmlFor="input">
-                <input className= "input" value={'Enter a number here '} id='input'> </input>
-            </label>
-            <button className="exit">EXIT</button>
+            <button className="play" onClick={handleClick}>PLAY</button>
+            <div className= "sign">Tic-Tac-Toe</div>
+            <button className="exit" onClick={resetGame}>EXIT</button>
         </div>
 
         </div>
