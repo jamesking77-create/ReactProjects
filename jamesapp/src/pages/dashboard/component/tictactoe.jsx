@@ -4,12 +4,13 @@ import '../styles/tictactoe.css'
 
 function Tictactoe(){
     let word = "PRESS PLAY TO START GAME"
+    let restext = document.getElementsByClassName  (".restext"); 
     const X = "X";
        
     const O = "O";
     let currentPlayer = 0;
  
-    let restext = document.querySelector(".restext"); 
+    
           
     let players = [
 
@@ -50,59 +51,60 @@ function Tictactoe(){
             divArray.push(columns[i].innerHTML);
             console.log(columns[i].innerHTML);
                    
-            if(divArray[0] == X && divArray[1] == X && divArray[2] == X ||
-                divArray[0] == O && divArray[1] == O && divArray[2] == O ){
-                    word = ` ${getCurrentPlayerName()} won!!!`;  
+            if((divArray[0] === X && divArray[1] === X && divArray[2] === X) ||
+                (divArray[0] === O && divArray[1] === O && divArray[2] === O )){
+                document.querySelector(".restext").innerHTML = `${getCurrentPlayerName()} WON!!!`;  
+               let row =  document.getElementById("row0column0").style.backgroundColor = 'green';
+               let row1 =  document.getElementById("row0column1").style.backgroundColor = 'green';
+               let row2 =  document.getElementById("row0column2").style.backgroundColor = 'green';
                         
             }
             
-            if(divArray[0] == X && divArray[3] == X && divArray[6] == X ||
-                divArray[0] == O && divArray[3] == O && divArray[6] == O ){
-                word = ` ${getCurrentPlayerName()} won!!!`; 
+            if((divArray[0] === X && divArray[3] === X && divArray[6] === X) ||
+                (divArray[0] === O && divArray[3] === O && divArray[6] === O) ){
+                document.querySelector(".restext").innerHTML = `${getCurrentPlayerName()} WON!!!`;  
                 
             }
             
-            if(divArray[0] == X && divArray[3] == X && divArray[6] == X ||
-                divArray[0] == O && divArray[3] == O && divArray[6] == O ){
-                    word = ` ${getCurrentPlayerName()} won!!!`;
+            if((divArray[0] === X && divArray[3] === X && divArray[6] === X) ||
+                (divArray[0] === O && divArray[3] === O && divArray[6] === O )){
+                document.querySelector(".restext").innerHTML = `${getCurrentPlayerName()} WON!!!`; 
                 
             }
             
-            if(divArray[6] == X && divArray[7] == X && divArray[8] == X ||
-                divArray[6] == O && divArray[7] == O && divArray[8] == O ){
-                    word = ` ${getCurrentPlayerName()} won!!!`;
+            if((divArray[6] === X && divArray[7] === X && divArray[8] === X) ||
+                (divArray[6] === O && divArray[7] === O && divArray[8] === O) ){
+                document.querySelector(".restext").innerHTML = `${getCurrentPlayerName()} WON!!!`; 
             
             }
             
-            if(divArray[2] == X && divArray[5] == X && divArray[8] == X ||
-                divArray[2] == O && divArray[5] == O && divArray[8] == O ){
-                    word = ` ${getCurrentPlayerName()} won!!!`;
+            if((divArray[2] === X && divArray[5] === X && divArray[8] === X )||
+                (divArray[2] === O && divArray[5] === O && divArray[8] === O )){
+                document.querySelector(".restext").innerHTML = `${getCurrentPlayerName()} WON!!!`; 
                 
             }
             
-            if(divArray[1] == X && divArray[4] == X && divArray[7] == X ||
-                divArray[1] == O && divArray[4] == O && divArray[7] == O ){
-                    word = ` ${getCurrentPlayerName()} won!!!`;
-                
+            if((divArray[1] === X && divArray[4] === X && divArray[7] === X )||
+                (divArray[1] === O && divArray[4] === O && divArray[7] === O )){
+                document.querySelector(".restext").innerHTML = `${getCurrentPlayerName()} WON!!!`; 
             }
             
             
-            if(divArray[0] == X && divArray[4] == X && divArray[8] == X || 
-                divArray[0] == O && divArray[4] == O && divArray[8] == O ){
-                    word = ` ${getCurrentPlayerName()} won!!!`;
-                
+            if((divArray[0] === X && divArray[4] === X && divArray[8] === X) || 
+                (divArray[0] === O && divArray[4] === O && divArray[8] === O )){
+                document.querySelector(".restext").innerHTML = `${getCurrentPlayerName()} WON!!!`; 
             }
             
-            if(divArray[2] == X && divArray[4] == X && divArray[6] == X ||
-                divArray[2] == O && divArray[4] == O && divArray[6] == O ){
-                    word = ` ${getCurrentPlayerName()} won!!!`;
+            if((divArray[2] === X && divArray[4] === X && divArray[6] === X )||
+                (divArray[2] === O && divArray[4] === O && divArray[6] === O )){
+                document.querySelector(".restext").innerHTML = `${getCurrentPlayerName()} WON!!!`; 
             
             }
     
     
-            if(divArray[3] == X && divArray[4] == X && divArray[5] == X ||
-                divArray[3] == O && divArray[4] == O && divArray[5] == O ){
-                    word = `${getCurrentPlayerName()} won!!!`;  
+            if((divArray[3] === X && divArray[4] === X && divArray[5] === X) ||
+                (divArray[3] === O && divArray[4] === O && divArray[5] === O) ){
+                document.querySelector(".restext").innerHTML = `${getCurrentPlayerName()} WON!!!`;  
                     
             }
           }
@@ -120,14 +122,13 @@ function Tictactoe(){
        let restext = document.querySelector(".restext");
 
 
-                
                 document.querySelector(".restext").innerHTML = "START GAME!!!";
                 columns.forEach(element => {
                    element.addEventListener("click", function(){
-                    if (element.innerHTML == ".") {
+                    if (element.innerHTML === ".") {
                         element.innerHTML = getCurrentSymbol();
-                         checkForWinner(columns)
                         restext.innerHTML = `${getCurrentPlayerName()} HAS PLAYED ( IT'S' YOUR TURN TO PLAY )`; 
+                        checkForWinner(columns)
                         resetCurrentPlayer();
                    }}); 
                 }); 
@@ -145,13 +146,14 @@ function Tictactoe(){
         
         });
     }
+    
 
 
 
 
     return(
 <body>
-    <div class="maincontainer">
+    <div className="maincontainer">
 
         <div className="gameBoard">
             <div className="row0">
@@ -160,13 +162,13 @@ function Tictactoe(){
                 <div id="row0column2" className="column">.</div>
             </div>
 
-            <div class="row1">
+            <div className="row1">
                 <div id="row1column0" className="column">.</div>
                 <div id="row1column1" className="column">.</div>
                 <div id="row1column2" className="column">.</div>
             </div>
 
-            <div class="row2">
+            <div className="row2">
                 <div id="row2column0" className="column">.</div>
                 <div id="row2column1" className="column">.</div>
                 <div id="row2column2" className="column">.</div>

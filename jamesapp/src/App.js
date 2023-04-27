@@ -1,12 +1,23 @@
-import logo from './logo.svg';
+
 import './App.css';
-import Tictactoe from './pages/dashboard/component/tictactoe.jsx'
+// import Tictactoe from './pages/dashboard/component/tictactoe.jsx'
+import MenstrualApp from './pages/dashboard/component/menstrualApp';
+import { BrowserRouter  as Router, Routes, Route} from 'react-router-dom';
+import MensPage2 from './pages/dashboard/component/mensPage2';
 
 
 function App() {
   return (
     <div className="App">
-      <Tictactoe/>
+      <Router>
+        <Routes>
+        
+          <Route path= "/" element={<MenstrualApp/>} />
+          <Route path = "/page2" element={<MensPage2/>}/>
+          
+        </Routes>
+
+      </Router>
       
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
