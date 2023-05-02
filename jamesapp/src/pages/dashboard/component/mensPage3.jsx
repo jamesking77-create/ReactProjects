@@ -1,9 +1,11 @@
 import React from 'react';
-import '../styles/mensPage3.css'
-import { Link } from 'react-router-dom';
+// import '../styles/mensPage3.css'
 
-function MensPage2(){
+function MensPage3(){
 
+    
+
+   
 
 
     function clearText(event){
@@ -17,20 +19,16 @@ function MensPage2(){
         if(periodLenghts > 7){
             document.querySelector(".rp").innerHTML = "oops! there was a mistake "; 
         }
-        let cycleLengths = parseInt(document.querySelector(".cycleLength").value);
         let lpd = document.querySelector(".lastPeriodDay").value;
         let lastDate = new Date(lpd);
         let nextFlowDate = lastDate;
-
-        nextFlowDate.setDate(lastDate.getDate() + cycleLengths+1)
-
+        nextFlowDate.setDate(lastDate.getDate() + 14)
         const dateOptions = { timeZone: 'UTC', month: 'long', day: 'numeric', year: 'numeric' }
         let nextDate = nextFlowDate.toLocaleDateString('en-US', dateOptions)
-
-        document.querySelector(".rp").innerHTML = "Your next flow starts: " + nextDate;
+        document.querySelector(".rp").innerHTML = "Your next ovulation starts: " + nextDate;
         console.log(document.querySelector(".rp"));
         console.log(nextFlowDate);     
-     
+        
     }
 
     function getNextDate(){
@@ -41,7 +39,7 @@ function MensPage2(){
         nextFlowDate.setDate(lastDate.getDate() + cycleLengths+1)
         const dateOptions = { timeZone: 'UTC', month: 'long', day: 'numeric', year: 'numeric' }
         let nextDate = nextFlowDate.toLocaleDateString('en-US', dateOptions)
-        document.querySelector(".rp").innerHTML = "Your next flow starts: " + nextDate;
+        document.querySelector(".rp").innerHTML = "Your next ovulation starts: " + nextDate;
 
         console.log(document.querySelector(".rp"));
         console.log(nextFlowDate); 
@@ -55,11 +53,9 @@ function MensPage2(){
     return(
         <div className="mcc">
              <div className='topnav'>
-                <Link to="/">
-                <button className='back'>
+                <div className='back' onClick={() => {window.location.href ='/'}}>
                     BACK
-                </button>
-                </Link>
+                </div>
             <div>
                 <p className='flo'>FLow-her</p>
             </div>
@@ -84,32 +80,32 @@ function MensPage2(){
             <div className="input">
                 <div className="inputimg">
                     <h4 className="question">Please answer the following questions below </h4>
-                    <label htmlFor="inputs1">  
+                    <label htmlFor="lastPeriodDay">  
                     {/* <p className='pclass'>When was your last day of period:  </p>    */}
-                        <input className="inputs1" type = "date"  onClick={clearText} placeholder=''></input>
+                        <input className="lastPeriodDay" type = "date"  onClick={clearText} placeholder=''></input>
                     </label>
 
-                    <label htmlFor="inputs2">
-                        <input className="inputs2" type = "text" onClick={clearText} placeholder='What is your period length' min={2} max={7}></input>
+                    <label htmlFor="periodLength">
+                        <input className="periodLength" type = "text" onClick={clearText} placeholder='What is your period length' ></input>
                     </label>
                 
-                    <label htmlFor="inputs3">
-                    <input className="inputs3" type='text' onClick={clearText} placeholder='what is your cycle length' min={0} max={31}></input>
+                    <label htmlFor="cycleLength">
+                    <input className="cycleLength" type='text'  onClick={clearText} placeholder='what is your cycle length'></input>
 
                     </label>
                 
-                <div className="submit" onClick={getFutureDates}>Submit</div>
+                <div className="submit" onClick={getFutureDates}> <p className='sub'>Submit</p> </div>
                 </div>
             </div>
             <div className="results">
-                <div className="result"> <p className='rp'>RESULTS</p> </div>
+                <div className="result"> <h2 className='rp'>RESULTS</h2> </div>
                 
                 <div className='button' onClick={getNextDate}>
                     <p className='btnText'>
                     NEXT
                     </p>
                     <div className='btnTwo'>
-                    <p className='btnText2'>Flow</p>
+                    <p className='btnText2'>OVL</p>
                 </div>
 
                 </div>
@@ -121,4 +117,4 @@ function MensPage2(){
         
     )
 }
-export default MensPage2;
+export default MensPage3;
