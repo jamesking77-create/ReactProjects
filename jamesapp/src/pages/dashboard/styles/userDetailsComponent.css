@@ -1,0 +1,101 @@
+.mainContainer{
+
+    height: 120vh;
+    background-image: url(../../../asset/image/cat-2083492.jpg);
+    
+}
+
+.innerContainer{
+    border: solid 2pt white;
+    height: 120vh;
+    background: rgba(0, 0, 0, 0.492);
+   
+}
+
+.innerContainer2{
+    border: solid 2pt white;
+    height: 120vh;
+    background: rgba(255, 255, 255, 0.249);
+   
+}
+
+
+.profileBox{
+    /* border: solid 2pt white; */
+    margin-top: 5%;
+    height: 90%;
+    width: 32%;
+    margin-left: 35%;
+    border-radius: 10px;
+    background: rgba(242, 242, 242, 0.355);
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.516);
+
+}
+
+.userPic{
+
+    border-radius: 10px;
+    height: 40%;
+    background: black;
+    background-image: url(../../../asset/image/jack.jpg);
+    object-fit:cover
+
+}
+
+
+.userInfo{
+    
+    height: 60%;
+    display: block;
+}
+
+.userInfo div{
+  
+    background-color: rgba(255, 255, 255, 0.415);
+    border-radius: 6px;
+    width:80%;
+    height: 8%;
+    margin-left: 9%;
+    margin-top: 4%;
+    /* box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.516); */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: xx-large;
+    text-align: center;
+    color: white;
+}
+
+
+.userInfo p{
+ color: white;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ font-size: x-large;
+ margin-left: 10%;
+}
+
+
+.buttons {
+    background: #00000055;
+    margin : 50px auto;
+    width : 150px;
+    height : 50px;
+    text-align : center;
+    transition : .2s;
+    cursor : pointer;
+    border-radius: 3px;
+    box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: xx-large;
+  
+  }
+
+  .buttons:hover{
+    transform: scale(1.1);
+    background: #00000026;
+   }
+
+
+ 
+  
+  
+
